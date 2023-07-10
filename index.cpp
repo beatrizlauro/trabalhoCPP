@@ -25,118 +25,164 @@ using namespace std;
 
 int main(){
     setlocale (LC_ALL, "portuguese");
-    string /*case1*/ nome[10], cpf[10], nascimento[10], endereco[10], timefav[10], selecaoFavorita[10];
-    char /*case1*/ sexo[10], gostaFutebol[10], gostaVolei[10], gostaBasquete[10], gostaHandbol[10], gostaNatacao[10], gostaCiclismo[10], gostaAtletismo[10], gostaMusculacao[10];
-    string /*case2*/ descricao[10], modelo[10], marca[10], tamanho[10], cor[10], preco[10];
-    string /*case3*/ produto[10], dataCompra[10], valorCompra[10], situacao[10];
-    string /*case4*/  produto1[10], cliente[10], valorVenda[10], dataVenda[10], dataRecebimento[10];
+    string nome[10], cpf[10], nascimento[10], endereco[10], timefav[10], selecaoFavorita[10];
+    char sexo[10], gostaFutebol[10], gostaVolei[10], gostaBasquete[10], gostaHandbol[10], gostaNatacao[10], gostaCiclismo[10], gostaAtletismo[10], gostaMusculacao[10];
+    string produtoCadastro[10], descricao[10], modelo[10], marca[10], tamanho[10], cor[10], preco[10];
+    string produtoItens[10], dataCompra[10], valorCompra[10], situacao[10];
+    string produtoVenda[10], cliente[10], valorVenda[10], dataVenda[10], dataRecebimento[10];
     string valor;
-    int op=-1;
+    int op = -1;
     bool achei = false;
-    int indice=0;
-    while (op!=0){
-        cout << "\nKRYPTO STORE \nOpções: \n1- Cadastro de Pessoas; \n2- Cadastro de Produtos; \n3- Cadastro de Itens de Produtos;"; 
+    int indice = 0;
+
+    while (op != 0) {
+        cout << "\nKRYPTO STORE \nOpções: \n1- Cadastro de Pessoas; \n2- Cadastro de Produtos; \n3- Cadastro de Itens de Produtos;";
         cout << "\n4- Cadastro Venda; \n5- Listagem dos Produtos (Por Preço); \n6- Listagem das 10 últimas vendas. \nQual a opção desejada? ";
         cin >> op;
+        cout << endl;
+
         switch (op){
             case 1:
-            cout << "CADASTRO DE PESSOAS: \n";
-            cin.ignore();
-            cout << "Nome: ";
-            getline (cin, nome[indice]);
-            cout << "CPF: ";
-            cin >> cpf[indice];
-            cout << "Sexo(F ou M): ";
-            cin >> sexo[indice];
-            cout << "Nascimento(DD/MM/AAAA): ";
-            cin >> nascimento[indice];
-            cin.ignore();
-            cout << "Endereço: ";
-            getline (cin, endereco[indice]);
-            cin.ignore();
-            cout << "Time Favorito: ";
-            getline (cin, timefav[indice]);
-            cin.ignore();
-            cout << "Seleção Favorita: ";
-            getline (cin, selecaoFavorita[indice]);
-            cout << "Gosta de Futebol?(S ou N): ";
-            cin >> gostaFutebol[indice];
-            cout << "Gosta de Vôlei?(S ou N): ";
-            cin >> gostaVolei[indice];
-            cout << "Gosta de Basquete?(S ou N) ";
-            cin >> gostaBasquete[indice];
-            cout << "Gosta de Handbol?(S ou N): ";
-            cin >> gostaHandbol[indice];
-            cout << "Gosta de Natação?(S ou N): ";
-            cin >> gostaNatacao[indice];
-            cout << "Gosta de Ciclismo?(S ou N): ";
-            cin >> gostaCiclismo[indice];
-            cout << "Gosta de Atletismo?(S ou N): ";
-            cin >> gostaAtletismo[indice];
-            cout << "Gosta de Musculação?(S ou N): ";
-            cin >> gostaMusculacao[indice];
-            indice++;
-            cout << "Cadastro efetuado com sucesso!\n";
+                cout << "CADASTRO DE PESSOAS: \n";
+                cout << "Nome: ";
+                cin.ignore();
+                getline(cin, nome[indice]);
+                cout << "CPF: ";
+                cin >> cpf[indice];
+                do{
+                cout << "Sexo(F ou M): ";
+                cin >> sexo[indice];
+                sexo[indice] = toupper(sexo[indice]);
+                } while(toupper(sexo[indice]) != 'F' && toupper(sexo[indice]) != 'M');
+                cout << "Nascimento(DD/MM/AAAA): ";
+                cin >> nascimento[indice];
+                cout << "Endereço: ";
+                cin.ignore();
+                getline (cin, endereco[indice]);
+                cout << "Time Favorito: ";
+                cin.ignore();
+                getline (cin, timefav[indice]);
+                cout << "Seleção Favorita: ";
+                cin.ignore();
+                getline (cin, selecaoFavorita[indice]);
+                do{
+                cout << "Gosta de Futebol?(S ou N): ";
+                cin >> gostaFutebol[indice];
+                gostaFutebol[indice] = toupper(gostaFutebol[indice]);
+                } while(toupper(gostaFutebol[indice]) != 'S' && toupper(gostaFutebol[indice]) != 'N');
+                do{
+                cout << "Gosta de Vôlei?(S ou N): ";
+                cin >> gostaVolei[indice];
+                gostaVolei[indice] = toupper(gostaVolei[indice]);
+                } while(toupper(gostaVolei[indice]) != 'S' && toupper(gostaVolei[indice]) != 'N');
+                do{
+                cout << "Gosta de Basquete?(S ou N) ";
+                cin >> gostaBasquete[indice];
+                gostaBasquete[indice] = toupper(gostaBasquete[indice]);
+                } while(toupper(gostaBasquete[indice]) != 'S' && toupper(gostaBasquete[indice]) != 'N');
+                do{
+                cout << "Gosta de Handbol?(S ou N): ";
+                cin >> gostaHandbol[indice];
+                gostaHandbol[indice] = toupper(gostaHandbol[indice]);
+                } while(toupper(gostaHandbol[indice]) != 'S' && toupper(gostaHandbol[indice]) != 'N');
+                do{
+                cout << "Gosta de Natação?(S ou N): ";
+                cin >> gostaNatacao[indice];
+                gostaNatacao[indice] = toupper(gostaNatacao[indice]);
+                } while(toupper(gostaNatacao[indice]) != 'S' && toupper(gostaNatacao[indice]) != 'N');
+                do{
+                cout << "Gosta de Ciclismo?(S ou N): ";
+                cin >> gostaCiclismo[indice];
+                gostaCiclismo[indice] = toupper(gostaCiclismo[indice]);
+                } while(toupper(gostaCiclismo[indice]) != 'S' && toupper(gostaCiclismo[indice]) != 'N');
+                do{
+                cout << "Gosta de Atletismo?(S ou N): ";
+                cin >> gostaAtletismo[indice];
+                gostaAtletismo[indice] = toupper(gostaAtletismo[indice]);
+                } while(toupper(gostaAtletismo[indice]) != 'S' && toupper(gostaAtletismo[indice]) != 'N');
+                do{
+                cout << "Gosta de Musculação?(S ou N): ";
+                cin >> gostaMusculacao[indice];
+                gostaMusculacao[indice] = toupper(gostaMusculacao[indice]);
+                } while(toupper(gostaMusculacao[indice]) != 'S' && toupper(gostaMusculacao[indice]) != 'N');
+                indice++;
+                cout << "Cadastro efetuado com sucesso!\n";
             break;
 
             case 2:
-            cout << "CADASTRO DE PRODUTOS: \n";
-            cin.ignore();
-            cout << "Descrição: ";
-            getline (cin, descricao[indice]);
-            cout << "Modelo: ";
-            cin >> modelo[indice];
-            cin.ignore();
-            cout << "Marca: ";
-            getline (cin, marca[indice]);
-            cout << "Tamanho: ";
-            cin >> tamanho[indice];
-            cin.ignore();
-            cout << "Cor: ";
-            getline (cin, cor[indice]);
-            cout << "Preço: R$";
-            cin >> preco[indice];
-            indice++;
-            cout << "Cadastro efetuado com sucesso!\n";
+                cout << "CADASTRO DE PRODUTOS: \n";
+                cout << "Produto: ";
+                cin.ignore();
+                getline(cin, produtoCadastro[indice]);
+                cout << "Descrição: ";
+                cin.ignore();
+                getline (cin, descricao[indice]);
+                cout << "Modelo: ";
+                cin >> modelo[indice];
+                cout << "Marca: ";
+                cin.ignore();
+                getline (cin, marca[indice]);
+                cout << "Tamanho: ";
+                cin >> tamanho[indice];
+                cout << "Cor: ";
+                cin.ignore();
+                getline (cin, cor[indice]);
+                cout << "Preço: R$";
+                cin >> preco[indice];
+                indice++;
+                cout << "Cadastro efetuado com sucesso!\n";
             break;
 
             case 3:
-            cout << "CADASTRO DE ITENS DE PRODUTOS: \n";
-            cin.ignore();
-            cout << "Produto: ";
-            getline (cin, produto[indice]);
-            cout << "Data da compra(DD/MM/AAAA): ";
-            cin >> dataCompra[indice];
-            cout << "Valor da compra: R$ ";
-            cin >> valorCompra[indice];
-            cin.ignore();
-            cout << "Situação: ";
-            getline (cin, situacao[indice]);
-            indice++;
-            cout << "Cadastro efetuado com sucesso!\n";
-            break;
+                cout << "CADASTRO DE ITENS DE PRODUTOS: \n";
+                cout << "Produto: ";
+                cin.ignore();
+                getline(cin, produtoItens[indice]);
+                cout << "Data da compra(DD/MM/AAAA): ";
+                cin >> dataCompra[indice];
+                cout << "Valor da compra: R$ ";
+                cin >> valorCompra[indice];
+                cout << "Situação: ";
+                cin.ignore();
+                getline (cin, situacao[indice]);
+                indice++;
+                cout << "Cadastro efetuado com sucesso!\n";
+                break;
 
             case 4:
-            cout << "CADASTRO DE VENDA: \n";
-            cout << "Produto: ";
-            getline (cin, produto1[indice]);
-            cout << "Cliente: ";
-            getline (cin, cliente[indice]);
-            cout << "Valor da compra: R$ ";
-            cin >> valorVenda[indice];
-            cout << "Data da venda(DD/MM/AAAA): ";
-            cin >> dataVenda[indice];
-            cout << "Data da recebimento(DD/MM/AAAA): ";
-            cin >> dataRecebimento[indice];
-            indice++;
-            cout << "Cadastro efetuado com sucesso!\n";
+                cout << "CADASTRO DE VENDA: \n";
+                cout << "Produto: ";
+                cin.ignore();
+                getline(cin, produtoVenda[indice]);
+                // achei = false;
+                for (int i = 0; i < indice; i++) {
+                    if (produtoVenda[indice] == produtoCadastro[i]) {
+                        // achei = true;
+                        break;
+                    }
+                }
+                if (!achei) {
+                    cout << "Não existem produtos cadastrados com esse nome.\n";
+                    continue;
+                }
+                cout << "Cliente: ";
+                cin.ignore();
+                getline (cin, cliente[indice]);
+                cout << "Valor da compra: R$ ";
+                cin >> valorVenda[indice];
+                cout << "Data da venda(DD/MM/AAAA): ";
+                cin >> dataVenda[indice];
+                cout << "Data da recebimento(DD/MM/AAAA): ";
+                cin >> dataRecebimento[indice];
+                indice++;
+                cout << "Cadastro efetuado com sucesso!\n";
             break;
 
             case 5:
-            cout << "LISTAGEM DOS PRODUTOS(por preço): \n";
-            cout << "Digite o valor para consulta: ";
-            cin >> valor;
-            for (int i=0; i<indice; i++){
+                cout << "LISTAGEM DOS PRODUTOS(por preço): \n";
+                cout << "Digite o valor para consulta: ";
+                cin >> valor;
+                for (int i=0; i<indice; i++){
                 if(preco[i] == valor){
                 cout << "Produto(s): " << descricao[i] << ", "; 
                 achei = true;
@@ -144,18 +190,21 @@ int main(){
             }
             if(!achei)
                 cout << "Não existem produtos cadastrados com esse preço.\n";
-            break;
-
-            break;
+                break;
 
             case 6:
-            cout << "LISTAGEM DAS 10 ÚLTIMAS VENDAS: \n";
-            
-            break;
+                cout << "LISTAGEM DAS 10 ÚLTIMAS VENDAS: \n";
+                for (int i=9; i>=0; i--){
+                    if (produtoVenda[i] == ""){
+                        continue;
+                    }
+                cout << i+1 << " - " << produtoVenda[i] << endl;
+                }
+                break;
 
             default:
-            cout << "Opção inválida.";
-            break;
+                cout << "Opção inválida.";
+                break;
         }
     }
 
