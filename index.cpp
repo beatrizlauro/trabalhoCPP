@@ -25,11 +25,11 @@ using namespace std;
 
 int main(){
     setlocale (LC_ALL, "portuguese");
-    string nome[10], cpf[10], nascimento[10], endereco[10], timefav[10], selecaoFavorita[10];
-    char sexo[10], gostaFutebol[10], gostaVolei[10], gostaBasquete[10], gostaHandbol[10], gostaNatacao[10], gostaCiclismo[10], gostaAtletismo[10], gostaMusculacao[10];
-    string produtoCadastro[10], descricao[10], modelo[10], marca[10], tamanho[10], cor[10], preco[10];
-    string produtoItens[10], dataCompra[10], valorCompra[10], situacao[10];
-    string produtoVenda[10], cliente[10], valorVenda[10], dataVenda[10], dataRecebimento[10];
+    string /*case 1*/ nome[10], cpf[10], nascimento[10], endereco[10], timefav[10], selecaoFavorita[10];
+    char /*case 1 */ sexo[10], gostaFutebol[10], gostaVolei[10], gostaBasquete[10], gostaHandbol[10], gostaNatacao[10], gostaCiclismo[10], gostaAtletismo[10], gostaMusculacao[10];
+    string /*case 2*/ produtoCadastro[10], descricao[10], modelo[10], marca[10], tamanho[10], cor[10], preco[10];
+    string /*case 3 */ produtoItens[10], dataCompra[10], valorCompra[10], situacao[10];
+    string /*case 4*/ produtoVenda[10], cliente[10], valorVenda[10], dataVenda[10], dataRecebimento[10];
     string valor;
     int op = -1;
     bool achei = false;
@@ -41,7 +41,7 @@ int main(){
         cin >> op;
         cout << endl;
 
-        switch (op){
+        switch (op) {
             case 1:
                 cout << "CADASTRO DE PESSOAS: \n";
                 cout << "Nome: ";
@@ -105,8 +105,8 @@ int main(){
                 cin >> gostaMusculacao[indice];
                 gostaMusculacao[indice] = toupper(gostaMusculacao[indice]);
                 } while(toupper(gostaMusculacao[indice]) != 'S' && toupper(gostaMusculacao[indice]) != 'N');
-                indice++;
                 cout << "Cadastro efetuado com sucesso!\n";
+                indice++;
             break;
 
             case 2:
@@ -129,8 +129,8 @@ int main(){
                 getline (cin, cor[indice]);
                 cout << "Preço: R$";
                 cin >> preco[indice];
-                indice++;
                 cout << "Cadastro efetuado com sucesso!\n";
+                indice++;
             break;
 
             case 3:
@@ -154,10 +154,10 @@ int main(){
                 cout << "Produto: ";
                 cin.ignore();
                 getline(cin, produtoVenda[indice]);
-                // achei = false;
+                achei = false;
                 for (int i = 0; i < indice; i++) {
                     if (produtoVenda[indice] == produtoCadastro[i]) {
-                        // achei = true;
+                        achei = true;
                         break;
                     }
                 }
