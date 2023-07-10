@@ -198,12 +198,13 @@ int main(){
                     if (produtoVenda[i] == ""){
                         continue;
                     }
-                cout << i+1 << " - " << produtoVenda[i] << endl;
+                cout << " - " << produtoVenda[i] << endl;
                 }
                 break;
 
             default:
                 cout << "Opção inválida.";
+                continue;
                 break;
         }
     }
